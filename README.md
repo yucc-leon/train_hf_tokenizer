@@ -24,10 +24,20 @@ test using sampled datasets:
 - fineweb (en)
 - skypile testset (zh)
 
-These compression rates are too good for very my small training corpus and simple implementation without any optimization. I guess far larger training sets and different test sets would make very different numbers.
+These compression rates are too good for my tiny training corpus and simple implementation without any optimization. Far larger training sets and different test sets may make very different numbers.
+
+## Tips
+
+1. train_tokenizer.py is a simple example using a processed corpus to train your tokenizer. Basically copied the configs used in DeepSeek-LLM V2. Their preprocessing is abstruse but I guess it's useful to deal with web data.
+2. parallel_*.py-s are processing the corpus in parallel. 
+3. you can use train_corpus_stats.py to compute how many tokens (using your tokenizer) you've trained after finishing training. Adding domain info would be useful in practice.
+4. you can compute compression rate using compression_rate.py
+5. I'd removed some private paths so you need to change them to yours to make them work
+6. training tokenizers is very memory-and-time-consuming. In my experiments, 1.5T is not enough for 27G's corpus; I downsampled it to 18G and ran it on a 1.3T memory server host with about 5 hours. In comparison, m-a-p/Neo's tokenizer was trained on 50B tokens with 12 days and unknown-size memory.
+7. mine took less computation so I don't think it's better than the other players in the above list.
 
 
-## Lectures and Discussions
+## References
 
 I really learned something from 
 1. Karpathy's video lecture (https://www.youtube.com/watch?v=zduSFxRajkE) and here's what I learned:
