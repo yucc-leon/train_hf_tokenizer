@@ -1,13 +1,13 @@
-This is a experimental notes for almost everything (fundamentally) you need to know about
+This is a experimental repo for almost everything (fundamentally) you need to know about
 # Training Your Customized Tokenizer
 feel free to check and modify these files.
 
 ## Basic Infomation
-Inspired by DeepSeek-LLM's tech report, which tells that their researchers train their own tokenizers just using Huggingface's Tokenizer library, I trained my own tokenizers too.
+Inspired by DeepSeek-LLM's tech report, which says that their researchers train their tokenizers just using Huggingface's Tokenizer library, I trained my tokenizers too.
 
 - datasets
   - m-a-p/Matrix, a very big dataset containing code, Chinese, and English corpus
-  - skypile, a high quality Chinese corpus for pretraining
+  - skypile, a high-quality Chinese corpus for pretraining
 - results
 
 | model | code | en | zh/bi |
@@ -33,7 +33,7 @@ These compression rates are too good for my tiny training corpus and simple impl
 3. you can use train_corpus_stats.py to compute how many tokens (using your tokenizer) you've trained after finishing training. Adding domain info would be useful in practice.
 4. you can compute compression rate using compression_rate.py
 5. I'd removed some private paths so you need to change them to yours to make them work
-6. training tokenizers is very memory-and-time-consuming. In my experiments, 1.5T is not enough for 27G's corpus; I downsampled it to 18G and ran it on a 1.3T memory server host with about 5 hours. In comparison, m-a-p/Neo's tokenizer was trained on 50B tokens with 12 days and unknown-size memory.
+6. training tokenizers is very memory-and-time-consuming. In my experiments, 1.5T is not enough for 27G's corpus; I downsampled it to 18G and ran it on a 1.3T memory server host for about 5 hours. In comparison, m-a-p/Neo's tokenizer was trained on 50B tokens with 12 days and unknown-size memory, said by its author.
 7. mine took less computation so I don't think it's better than the other players in the above list.
 
 
@@ -47,7 +47,6 @@ I really learned something from
  - ...
 
 2. Huggingface's NLP course (https://huggingface.co/learn/nlp-course/chapter6/1). You can train your tokenizer by their examples step by step.
-
 3. DeepSeek-LLM V2's tokenizer
 4. Other references
  - https://github.com/huggingface/transformers/issues/4777
