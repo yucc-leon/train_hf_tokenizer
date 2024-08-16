@@ -1,5 +1,5 @@
 This is an experimental repository for nearly everything you fundamentally need to know about:
-# Training Your Customized Tokenizer
+# Training Your (toy) Customized Tokenizer
 feel free to check and modify these files.
 
 ## Updated: lesson learned
